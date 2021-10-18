@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RecipeBox.Models.Recipe
+
+<h3>Add a New Recipe!</h3>
+<hr>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model=> model.Title, new { @class = "form-control" })
+  <br>
+  @Html.LabelFor(model => model.Instructions)
+  @Html.TextAreaFor(model=> model.Instructions, new { @class = "form-control form-control-full", rows = 8 })
+  <br>
+
+}
