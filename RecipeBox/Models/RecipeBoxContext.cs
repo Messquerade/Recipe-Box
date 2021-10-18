@@ -6,7 +6,7 @@ namespace RecipeBox.Models
 {
   public class RecipeBoxContext : IdentityDbContext<ApplicationUser>
   {
-    public DbSet<Tag> Categories { get; set; }
+    public DbSet<Tag> Tags { get; set; }
     public DbSet<Recipe> Recipes { get; set; }
     public DbSet<RecipeTag> RecipeTag { get; set; }
 
