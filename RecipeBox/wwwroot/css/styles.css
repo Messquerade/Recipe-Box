@@ -8,3 +8,7 @@ div#Header {
 body {
   text-align: center;
 }
+
+.ButtonText {
+  color: white;
+}

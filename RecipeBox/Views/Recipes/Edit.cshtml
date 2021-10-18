@@ -1,3 +1,33 @@
 @{
   Layout = "_Layout";
 }
+
+@model RecipeBox.Models.Recipe
+
+<h2>Edit</h2>
+
+<h3>Edit this recipe: @Model.Title</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.RecipeId)
+
+  @Html.LabelFor(model => model.Title)
+  @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+
+  @Html.LabelFor(model => model.Ingredients)
+  @Html.EditorFor(model => model.Ingredients, new { htmlAttributes = new { @class = "form-control" } })
+
+  @Html.LabelFor(model => model.Instructions)
+  @Html.EditorFor(model => model.Instructions, new { htmlAttributes = new { @class = "form-control"} })
+
+  @Html.LabelFor(model => model.Time)
+  @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
+
+  @Html.LabelFor(model => model.Rating)
+  @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control"} })
+
+  <input type="submit" value="Save" class="btn btn-dark"/>
+
+
+}

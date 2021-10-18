@@ -1,3 +1,19 @@
 @{
   Layout = "_Layout";
 }
+
+@model RecipeBox.Models.Tag
+
+<h2>Edit</h2>
+
+<h3>Edit this Tag: @Model.TagName</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TagId)
+
+  @Html.LabelFor(model => model.TagName)
+  @Html.EditorFor(model => model.TagName, new { htmlAttributes = new { @class = "form-control" } })
+  <br>
+  <input type="submit" value="Save" class = "btn btn-dark"/>
+}

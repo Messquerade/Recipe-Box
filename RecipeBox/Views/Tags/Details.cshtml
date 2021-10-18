@@ -1,3 +1,27 @@
 @{
   Layout = "_Layout";
 }
+
+@model RecipeBox.Models.Tag
+
+<h3>Tag Details</h3>
+
+<h4>@Model.TagName</h4>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This tag has no connected recipes.</p>
+}
+else
+{
+  <h4>Recipes:</h4>
+  <ul>
+    @foreach(var join in Model.JoinEntities)
+    {
+      <li>@join.Recipe.Title</li>
+    }
+  </ul>
+}
+
+<p class="btn btn-dark">@Html.ActionLink("Edit Tag", "Edit", new { id = Model.TagId}, new { @class = "ButtonText"})</p>
+<p class="btn btn-dark">@Html.ActionLink("Delete Tag", "Delete", new { id = Model.TagId}, new { @class = "ButtonText"})</p>
