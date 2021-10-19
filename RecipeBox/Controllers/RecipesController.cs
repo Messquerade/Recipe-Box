@@ -31,9 +31,12 @@ namespace RecipeBox.Models
       return View(userItems);
     }
 
-    public ActionResult Create()
+    public async Task<ActionResult> Create()
     {
-      ViewBag.TagId = new SelectList(_db.Tags, "TagId", "TagName");
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userTags = _db.Tags.Where(entry => entry.User.Id == currentUser.Id);
+      ViewBag.TagId = new SelectList(userTags, "TagId", "TagName");
       return View();
     }
 
@@ -62,10 +65,13 @@ namespace RecipeBox.Models
       return View(thisRecipe);
     }
 
-    public ActionResult Edit(int id)
+    public async Task<ActionResult> Edit(int id)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userTags = _db.Tags.Where(entry => entry.User.Id == currentUser.Id);
       var thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
-      ViewBag.TagId = new SelectList(_db.Tags, "TagId", "TagName");
+      ViewBag.TagId = new SelectList(userTags, "TagId", "TagName");
       return View(thisRecipe);
     }
 
@@ -81,17 +87,20 @@ namespace RecipeBox.Models
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddTag(int id)
+    public async Task<ActionResult> AddTag(int id)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userTags = _db.Tags.Where(entry => entry.User.Id == currentUser.Id);
       var thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
-      ViewBag.TagId = new SelectList(_db.Tags, "TagId", "TagName");
+      ViewBag.TagId = new SelectList(userTags, "TagId", "TagName");
       return View(thisRecipe);
     }
 
     [HttpPost]
     public ActionResult AddTag(Recipe recipe, int TagId)
     {
-      if (TagId != 0)
+      if (TagId != 0 && !_db.RecipeTag.Any(model => model.RecipeId == recipe.RecipeId && model.TagId == TagId))
       {
         _db.RecipeTag.Add(new RecipeTag() { TagId = TagId, RecipeId = recipe.RecipeId });
       }

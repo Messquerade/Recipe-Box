@@ -13,10 +13,10 @@
   @Html.TextBoxFor(model=> model.Title, new { @class = "form-control", @required = "required" })
   <br>
   <h4>@Html.LabelFor(model => model.Instructions)</h4>
-  @Html.TextAreaFor(model=> model.Instructions, new { @class = "form-control form-control-full", rows = 6 })
+  @Html.TextAreaFor(model=> model.Instructions, new { @class = "form-control form-control-full", rows = 5 })
   <br>
   <h4>@Html.LabelFor(model => model.Ingredients)</h4>
-  @Html.TextAreaFor(model=> model.Ingredients, new { @class = "form-control form-control-full", rows = 6 })
+  @Html.TextAreaFor(model=> model.Ingredients, new { @class = "form-control form-control-full", rows = 5 })
   <br>
   <h4>Total @Html.LabelFor(model => model.Time) in Minutes</h4>
   @Html.TextBoxFor(model => model.Time, new { @class = "form-control", @type = "number"})
