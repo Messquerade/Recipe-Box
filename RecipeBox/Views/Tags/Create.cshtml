@@ -10,10 +10,10 @@
 @using (Html.BeginForm())
 {
   <div class = "form-group">
-    <h5>@Html.LabelFor(model => model.TagName)</h5>
+    <h5>@Html.Label("Enter a Tag")</h5>
     @Html.TextBoxFor(model => model.TagName, new { @class = "form-control", @required = "required" })
   </div>
-  <input type="submit" value="Add Ne Tag" class="btn btn-dark"/>
+  <input type="submit" value="Add New Tag" class="btn btn-dark"/>
 }
 
 <br>

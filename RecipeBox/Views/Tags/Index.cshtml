@@ -11,11 +11,17 @@
   <h3>You have no tags yet.</h3>
 }
 
-<ul>
-  @foreach(Tag tag in Model)
+@foreach(Tag tag in Model)
+{
+  @if(!tag.TagName.Contains("#"))
   {
-    <li>@Html.ActionLink($"{tag.TagName}", "Details", new { id = tag.TagId })</li>
+    <p>#@Html.ActionLink($"{tag.TagName}", "Details", new { id = tag.TagId })</p>
   }
-</ul>
+  else
+  {
+    <p>@Html.ActionLink($"{tag.TagName}", "Details", new { id = tag.TagId })</p>
+  }
+}
 
-<p class="btn btn-dark">@Html.ActionLink("Create a Tag", "Create", null, new { @class = "ButtonText"})</p>
+
+<p class="btn btn-dark">@Html.ActionLink("Create a Tag", "Create", null, null, new { @class = "ButtonText"})</p>

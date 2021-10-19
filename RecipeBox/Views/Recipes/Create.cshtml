@@ -4,7 +4,7 @@
 
 @model RecipeBox.Models.Recipe
 
-<h3>Add a New Recipe!</h3>
+<h3>Add a New Recipe:</h3>
 <hr>
 
 @using (Html.BeginForm())
@@ -18,7 +18,7 @@
   <h4>@Html.LabelFor(model => model.Ingredients)</h4>
   @Html.TextAreaFor(model=> model.Ingredients, new { @class = "form-control form-control-full", rows = 6 })
   <br>
-  <h4>Total @Html.LabelFor(model => model.Time)</h4>
+  <h4>Total @Html.LabelFor(model => model.Time) in Minutes</h4>
   @Html.TextBoxFor(model => model.Time, new { @class = "form-control", @type = "number"})
   <br>
   <h4>@Html.LabelFor(model => model.Rating)</h4>

@@ -16,6 +16,6 @@ namespace RecipeBox.Models
     public string Rating { get; set; }
     public int Time { get; set; }
     public virtual ApplicationUser User { get; set; }
-    public virtual ICollection<RecipeTag> JoinEntities { get; }
+    public virtual ICollection<RecipeTag> JoinEntities { get; set; }
   }
 }

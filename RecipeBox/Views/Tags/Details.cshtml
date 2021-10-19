@@ -6,7 +6,8 @@
 
 <h3>Tag Details</h3>
 
-<h4>@Model.TagName</h4>
+<h4>Recipes for @Model.TagName</h4>
+<hr>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -14,11 +15,10 @@
 }
 else
 {
-  <h4>Recipes:</h4>
   <ul>
     @foreach(var join in Model.JoinEntities)
     {
-      <li>@join.Recipe.Title</li>
+      <li>@Html.ActionLink($"{join.Recipe.Title}", "Details", "Recipes", new { id = join.Recipe.RecipeId})</li>
     }
   </ul>
 }
