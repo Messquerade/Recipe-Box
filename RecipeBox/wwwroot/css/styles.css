@@ -1,8 +1,12 @@
 div#Header {
   display: flex;
   justify-content: space-evenly;
-  background-color: #b9b9b9;
+  background-color: #D5E2D6;
   margin-bottom: 10px;
+}
+
+.HeaderText {
+  color: white;
 }
 
 body {
@@ -11,6 +15,10 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: white;
+}
+
+h4, h3 {
+  text-shadow: 1px 1px 2px black;
 }
 
 .ButtonText {
@@ -22,13 +30,19 @@ body {
 }
 
 .btn {
-  background-color: rgb(104, 49, 104);
+  background-color: #683168;
 }
 
-.tags {
-  background-color: whitesmoke;
+.tags, .paragraph {
+  background-color: rgba(245, 245, 245, 0.781);
   padding: 3px;
   margin: 5px;
+  border-radius: 8px;
+}
+
+.paragraph {
+  color: darkslategray;
+  font-size: 18px;
 }
 
 .circle {

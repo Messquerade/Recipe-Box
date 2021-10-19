@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RecipeBox.Models.Recipe
+@using RecipeBox.Models
+
+<h3>Search Recipes by Ingredients</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.TextBoxFor(model => model.Ingredients, null, new { @class = "form-control"})
+  <br>
+  <input type="submit" value="Search" class="btn btn-light ButtonText"/>
+}

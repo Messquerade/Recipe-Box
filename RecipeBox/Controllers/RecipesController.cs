@@ -27,7 +27,7 @@ namespace RecipeBox.Models
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      var userItems = _db.Recipes.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      var userItems = _db.Recipes.Where(entry => entry.User.Id == currentUser.Id).OrderByDescending(model => model.Rating).ToList();
       return View(userItems);
     }
 
@@ -130,6 +130,22 @@ namespace RecipeBox.Models
       _db.RecipeTag.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Search()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Search(string Ingredients)
+    {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      string searchName = Ingredients.ToLower();
+      List<Recipe> currentUserRecipes = _db.Recipes.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      List<Recipe> searchResults = currentUserRecipes.Where(recipe => recipe.Ingredients.ToLower().Contains(searchName)).ToList();
+      return View("Index", searchResults);
     }
   }
 }

@@ -4,17 +4,17 @@
 
 @model RecipeBox.Models.Recipe
 
-<h2>@Model.Title</h2>
+<h3>@Model.Title</h3>
 <hr>
 
 <h4>Rating: @Model.Rating</h4>
 <h5><em>Total Time: @Model.Time minutes</em></h5>
 
 <h3>Ingredients</h3>
-<p>@Model.Ingredients</p>
+<p class="paragraph">@Model.Ingredients</p>
 
 <h3>Instructions</h3>
-<p>@Model.Instructions</p>
+<p class="paragraph">@Model.Instructions</p>
 
 @if(@Model.JoinEntities.Count == 0)
 {
