@@ -29,7 +29,7 @@ else
       <div class = "card-deck">
         <div class="card text-center mb-3" style="width: 24rem;">
           <div class="card-body">
-            <h5 class="card-title">@join.Tag.TagName</h5>
+            <h5 class="card-title" style="color:black;">@join.Tag.TagName</h5>
             @using (Html.BeginForm("DeleteTag", "Recipes"))
             {
               @Html.Hidden("joinId", @join.RecipeTagId)
@@ -41,7 +41,7 @@ else
     }
 }
 
-<p class="btn btn-dark">@Html.ActionLink("Edit this Recipe", "Edit", new { id = Model.RecipeId }, new { @class = "ButtonText" })</p>
-<p class="btn btn-dark">@Html.ActionLink("Delete this Recipe", "Delete", new { id = Model.RecipeId}, new { @class = "ButtonText"})</p>
-<p class="btn btn-dark">@Html.ActionLink("Add a Tag to this Recipe", "AddTag", new {id = Model.RecipeId}, new { @class = "ButtonText"})</p>
+<p class="btn btn-light">@Html.ActionLink("Edit this Recipe", "Edit", new { id = Model.RecipeId }, new { @class = "ButtonText" })</p>
+<p class="btn btn-light">@Html.ActionLink("Delete this Recipe", "Delete", new { id = Model.RecipeId}, new { @class = "ButtonText"})</p>
+<p class="btn btn-light">@Html.ActionLink("Add a Tag to this Recipe", "AddTag", new {id = Model.RecipeId}, new { @class = "ButtonText"})</p>
 

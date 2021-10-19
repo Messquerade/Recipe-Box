@@ -10,10 +10,25 @@ body {
   background: url(/../img/cook-book.jpg);
   background-size: cover;
   background-attachment: fixed;
+  color: white;
 }
 
 .ButtonText {
   color: white;
+}
+
+.ButtonText:hover {
+  color: black;
+}
+
+.btn {
+  background-color: rgb(104, 49, 104);
+}
+
+.tags {
+  background-color: whitesmoke;
+  padding: 3px;
+  margin: 5px;
 }
 
 .circle {

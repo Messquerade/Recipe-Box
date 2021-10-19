@@ -15,7 +15,7 @@
       <div class="card text-center mb-3" style="width: 24rem;">
         <div class="card-body">
         <h5 class="card-title">@Html.ActionLink($"{recipe.Title}", "Details", new { id = recipe.RecipeId})</h5>
-          <p class="card-text">@recipe.Time</p>
+          <p class="card-text" style="color:grey;">Total Time: @recipe.Time</p>
             <div class="card-footer text-muted">
               Your Rating: @recipe.Rating
           </div>
@@ -29,4 +29,4 @@ else
   <p>You have no recipes yet.</p>
 }
 
-<p class="btn btn-dark">@Html.ActionLink("Add a Recipe", "Create", null, null, new { @class="ButtonText"})</p>
+<p class="btn btn-light">@Html.ActionLink("Add a Recipe", "Create", null, null, new { @class="ButtonText"})</p>

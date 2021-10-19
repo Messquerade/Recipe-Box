@@ -5,6 +5,7 @@
 @using RecipeBox.Models;
 
 <h2>All Tags</h2>
+<div class=tags>
 
 @if (Model.Count == 0)
 {
@@ -15,13 +16,14 @@
 {
   @if(!tag.TagName.Contains("#"))
   {
-    <p>#@Html.ActionLink($"{tag.TagName}", "Details", new { id = tag.TagId })</p>
+    <h3>#@Html.ActionLink($"{tag.TagName}", "Details", new { id = tag.TagId })</h3>
   }
   else
   {
-    <p>@Html.ActionLink($"{tag.TagName}", "Details", new { id = tag.TagId })</p>
+    <h3>@Html.ActionLink($"{tag.TagName}", "Details", new { id = tag.TagId })</h3>
   }
 }
+</div>
 
 
-<p class="btn btn-dark">@Html.ActionLink("Create a Tag", "Create", null, null, new { @class = "ButtonText"})</p>
+<p class="btn btn-light">@Html.ActionLink("Create a Tag", "Create", null, null, new { @class = "ButtonText"})</p>
