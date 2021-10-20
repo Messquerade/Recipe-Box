@@ -11,13 +11,13 @@
     <p>Hello @User.Identity.Name!</p>
     @using (Html.BeginForm("LogOff", "Account"))
     {
-        <input type="submit" class="btn btn-dark" value="Log out" />
+        <input type="submit" class="btn btn-light ButtonText" value="Log out" />
     }
 }
 else
 {
-    <p class="btn btn-dark">@Html.ActionLink("Register", "Register")</p>
-    <p class="btn btn-dark">@Html.ActionLink("Log in", "Login")</p>
+    <p class="btn btn-light">@Html.ActionLink("Register", "Register")</p>
+    <p class="btn btn-light">@Html.ActionLink("Log in", "Login")</p>
 }
 <br>
-<p class="btn btn-dark">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "ButtonText" })</p>
+<p class="btn btn-light">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "ButtonText" })</p>
